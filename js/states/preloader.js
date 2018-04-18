@@ -15,6 +15,10 @@ class Preloader {
         
          this.load.image('box', 'assets/square.jpg')
          this.load.audio('relaxTrack', 'assets/MiniLoop.wav')
+        
+        for (var i = 1; i < 6; i ++) {
+            this.load.audio('hoverSound' + i, 'assets/hoverSound' + i + '.wav');
+        }
 
     }
     
