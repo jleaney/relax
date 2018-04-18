@@ -10,7 +10,7 @@ class Game {
         this.game.stage.backgroundColor = "#000000";
         
         this.square = this.game.add.sprite(0, 0, 'square');
-        this.music = this.game.add.audio('relaxTraxk');
+        this.music = this.game.add.audio('relaxTrack');
         this.music.loopFull();
         
       }

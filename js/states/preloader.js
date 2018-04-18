@@ -19,10 +19,7 @@ class Preloader {
     }
     
     create() {
-        
-        
-        
-        
+
         this.state.start('Game');
     }
      
