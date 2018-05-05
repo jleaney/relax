@@ -3,6 +3,8 @@ var spritesPerSecond = 1;
 
 var hoverSounds = [];
 
+var musicStarted = false;
+
 class Game {
     
     Preload() {
@@ -17,7 +19,7 @@ class Game {
         this.game.stage.backgroundColor = "#000000"
         
         this.music = this.game.add.audio('relaxTrack');
-        this.music.loopFull();
+        
         
         for (var i = 0; i < 5; i++) {
             hoverSounds.push(this.game.add.audio('hoverSound' + (i+1)));
@@ -29,6 +31,11 @@ class Game {
     
     update() {
         
+        if (this.game.input.activePointer.leftButton.isDown && !musicStarted) {
+            this.music.loopFull();
+            musicStarted = true;
+        }
+        
         for (var i = 0; i < spritesPerSecond; i ++) {
             var square = this.game.add.sprite(Math.random() * this.game.world.width, Math.random() * this.game.world.height, 'box');
             square.scale.setTo(Math.random() * 5);
@@ -37,7 +44,6 @@ class Game {
             var tween = this.game.add.tween(square).to( { alpha: 0 }, 6000, "Linear", true);
             square.inputEnabled = true;
             square.events.onInputOver.add(this.over, this);
-//            square.events.onInputOut.add(this.out, this);
         }
         
         
