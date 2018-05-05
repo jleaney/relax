@@ -25,7 +25,7 @@ class Game {
         
         this.music = this.game.add.audio('relaxTrack');
         this.music.loopFull();
-}
+
         
       }
     
