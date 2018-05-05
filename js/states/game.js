@@ -18,23 +18,23 @@ class Game {
         this.game.world.setBounds(0, 0, this.game.width, this.game.height);
         this.game.stage.backgroundColor = "#000000"
         
-        this.music = this.game.add.audio('relaxTrack');
-        
-        
         for (var i = 0; i < 5; i++) {
             hoverSounds.push(this.game.add.audio('hoverSound' + (i+1)));
             hoverSounds[i].volume = 0.75;
         }
         
-    
+        this.music = this.game.add.audio('relaxTrack');
+        this.music.loopFull();
+}
+        
       }
     
     update() {
         
-        if (this.game.input.activePointer.leftButton.isDown && !musicStarted) {
-            this.music.loopFull();
-            musicStarted = true;
-        }
+//        if (this.game.input.activePointer.leftButton.isDown && !musicStarted) {
+//            
+//            musicStarted = true;
+//        }
         
         for (var i = 0; i < spritesPerSecond; i ++) {
             var square = this.game.add.sprite(Math.random() * this.game.world.width, Math.random() * this.game.world.height, 'box');
